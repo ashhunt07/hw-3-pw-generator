@@ -19,7 +19,6 @@ function writePassword() {
 }
 
 
-
 /* Set all password variables
 var allChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?.@#$%&*+_-"
 var char = allChar.split(" ");*/ 
@@ -29,7 +28,7 @@ var char = allChar.split(" ");*/
 var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var aLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var aUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var specChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
+var specChar = ["!", "%", "&", "*", "+", "-", ".", "?",];
 
 
 // Variable Declaration 
@@ -55,32 +54,32 @@ function generatePassword (){
 var num = confirm ("Would you like to have Numbers in your password?");
     //Confirm selection
     if (num === true){
-      // grabChar = grabChar.concat(num);
-      (grabChar.push(num));
+      grabChar = grabChar.concat(num);
+      // (grabChar.push(num));
       charType = charType.concat(" Numbers");
     }
 
 var aLower = confirm ("Would you like to have Uppercase characters in your password?");
   //Confirm selection
   if (aLower === true){
-    // grabChar = grabChar.concat(aLower);
-    (grabChar.push(aLower));
+    grabChar = grabChar.concat(aLower);
+    // (grabChar.push(aLower));
     charType = charType.concat(" Lower Case Letters");
 }
 
 var aUpper = confirm ("Would you like to have Lowercases characters in your password?");
   //Confirm selection
   if (aUpper === true){
-    // grabChar = grabChar.concat(aUpper);
-    (grabChar.push(aUpper));
+    grabChar = grabChar.concat(aUpper);
+    // (grabChar.push(aUpper));
     charType = charType.concat(" Upper Case Letters");
 }
 
 var specChar = confirm ("Would you like to have Special Characters in your password?");
   //Confirm selection
   if (specChar === true){
-    // grabChar = grabChar.concat(specChar);
-    (grabChar.push(specChar));
+    grabChar = grabChar.concat(specChar);
+    // (grabChar.push(specChar));
     charType = charType.concat(" Special Characters");
 }
 
@@ -95,7 +94,7 @@ if (num === false && aLower === false && aUpper === false && specChar === false)
 
 var password = "";
     for (var i = 0; i <= howManyChar; i++) {
-      var genPw = grabChar[Math.floor(Math.random() * grabChar.length)];
+      var genPw = Math.floor(Math.random() * grabChar.length) + 1;
       password = password + genPw;
     }
     return password;
