@@ -1,6 +1,5 @@
 // Assignment code will generate a password with a mix of letters, numbers and symbols with a length betwee 8 and 128 characters
 
-
 //Onclick function to activate generator
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -8,14 +7,12 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 
@@ -93,9 +90,11 @@ if (num === false && aLower === false && aUpper === false && specChar === false)
 
 
 var password = "";
-    for (var i = 0; i <= howManyChar; i++) {
-      var genPw = Math.floor(Math.random() * grabChar.length) + 1;
-      password = password + genPw;
+    for (var i = 0; i < howManyChar; i++) {
+      // var genPw = Math.floor(Math.random() * grabChar.length);
+      // password = password + genPw;
+      // password = password + grabChar[Math.floor(Math.random() * grabChar.length)];
+    
     }
     return password;
       
