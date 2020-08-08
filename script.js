@@ -36,13 +36,14 @@ var specChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var howManyChar;
 var password = "";
 var grabChar = [];
+var charType = [];
 
 
 // Prompt to decide password length
 function generatePassword (){
   var howManyChar = prompt("How many characters would you like your password to be? (choose a number between 8 and 128 characters)");
     //Verify length is correct
-    if (howManyChar <=8 || howManyChar >= 128) {
+    if (howManyChar >= 8 && howManyChar <= 128) {
       alert("Your password will be " + howManyChar + " characters long.");
     }else{
       alert("Password length much must be between 8 and 128 charcters. Please try again!");
@@ -50,15 +51,55 @@ function generatePassword (){
     }
 
 
-// Promt for all other character types to be included in password
-var num = confirm ("you want numbers in your password?");
-var aLower = confirm ("you want Uppercases in your password?");
-var aUpper = confirm ("you want lowercases in your password?");
-var specChar = confirm ("you want special characters in your password?");
+// Prompt for all other character types to be included in password
+var num = confirm ("Would you like to have Numbers in your password?");
+    //Confirm selection
+    if (num === true){
+      grabChar = grabChar.concat(num);
+      // (grabChar.push(num));
+      charType = charType.concat(" Numbers");
+    }
+
+var aLower = confirm ("Would you like to have Uppercase characters in your password?");
+  //Confirm selection
+  if (aLower === true){
+    grabChar = grabChar.concat(aLower);
+    // (grabChar.push(aLower));
+    charType = charType.concat(" Lower Case Letters");
+}
+
+var aUpper = confirm ("Would you like to have Lowercases characters in your password?");
+  //Confirm selection
+  if (aUpper === true){
+    grabChar = grabChar.concat(aUpper);
+    // (grabChar.push(aUpper));
+    charType = charType.concat(" Upper Case Letters");
+}
+
+var specChar = confirm ("Would you like to have Special Characters in your password?");
+  //Confirm selection
+  if (specChar === true){
+    grabChar = grabChar.concat(specChar);
+    (grabChar.push(specChar));
+    charType = charType.concat(" Special Characters");
+}
 
 // Validated that at least one character type should be selected, if not then send back to select
+if (num === false && aLower === false && aUpper === false && specChar === false){
+  alert("Please choose at lease one character type to include in your password.");
+  return;
+} else{
+  alert("You password will contain: " + charType + ".")
+}
 
 
+var password = "";
+    for (var i = 0; i <= howManyChar; i++) {
+      var genPw = grabChar[Math.floor(Math.random() * grabChar.length)];
+      password = password + genPw;
+    }
+    return password;
+      
   }
 
 
