@@ -55,31 +55,31 @@ function generatePassword (){
 var num = confirm ("Would you like to have Numbers in your password?");
     //Confirm selection
     if (num === true){
-      grabChar = grabChar.concat(num);
-      // (grabChar.push(num));
+      // grabChar = grabChar.concat(num);
+      (grabChar.push(num));
       charType = charType.concat(" Numbers");
     }
 
 var aLower = confirm ("Would you like to have Uppercase characters in your password?");
   //Confirm selection
   if (aLower === true){
-    grabChar = grabChar.concat(aLower);
-    // (grabChar.push(aLower));
+    // grabChar = grabChar.concat(aLower);
+    (grabChar.push(aLower));
     charType = charType.concat(" Lower Case Letters");
 }
 
 var aUpper = confirm ("Would you like to have Lowercases characters in your password?");
   //Confirm selection
   if (aUpper === true){
-    grabChar = grabChar.concat(aUpper);
-    // (grabChar.push(aUpper));
+    // grabChar = grabChar.concat(aUpper);
+    (grabChar.push(aUpper));
     charType = charType.concat(" Upper Case Letters");
 }
 
 var specChar = confirm ("Would you like to have Special Characters in your password?");
   //Confirm selection
   if (specChar === true){
-    grabChar = grabChar.concat(specChar);
+    // grabChar = grabChar.concat(specChar);
     (grabChar.push(specChar));
     charType = charType.concat(" Special Characters");
 }
