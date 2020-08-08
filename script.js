@@ -25,27 +25,30 @@ var allChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?.
 var char = allChar.split(" ");*/ 
 
 
-//All variable as separate arrays
-// Various Arrays 
+//All variable as separate arrays for generator
 var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var aLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var aUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var specChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 
+
 // Variable Declaration 
 var howManyChar;
 var password = "";
-
+var grabChar = [];
 
 
 // Prompt to decide password length
 function generatePassword (){
   var howManyChar = prompt("How many characters would you like your password to be? (choose a number between 8 and 128 characters)");
+    //Verify length is correct
+    if (howManyChar <=8 || howManyChar >= 128) {
+      alert("Your password will be " + howManyChar + " characters long.");
+    }else{
+      alert("Password length much must be between 8 and 128 charcters. Please try again!");
+      return;
+    }
 
-  if (howManyChar <8 || howManyChar > 128) {
-    alert("Password length much must be between 8 and 128 charcters. Please try again!");
-    generatePassword();
-  }
 
 // Promt for all other character types to be included in password
 var num = confirm ("you want numbers in your password?");
@@ -53,9 +56,10 @@ var aLower = confirm ("you want Uppercases in your password?");
 var aUpper = confirm ("you want lowercases in your password?");
 var specChar = confirm ("you want special characters in your password?");
 
+// Validated that at least one character type should be selected, if not then send back to select
 
-}
 
+  }
 
 
 
